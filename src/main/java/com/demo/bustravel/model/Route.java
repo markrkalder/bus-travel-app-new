@@ -15,7 +15,6 @@ public class Route {
     private Town from;
     @ManyToOne
     private Town to;
-    //TODO: Make sure there are no floats in distacne
     private int distance;
     @OneToMany
     private List<ScheduleItem> schedule;

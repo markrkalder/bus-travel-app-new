@@ -3,7 +3,6 @@ package com.demo.bustravel;
 import com.demo.bustravel.model.Route;
 import lombok.Data;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 @Data
@@ -14,7 +13,7 @@ public class RouteDataResponse {
 
     @Data
     public static class Expiry {
-        private Timestamp date;
+        private String date;
         private int timezone_type;
         private String timezone;
     }

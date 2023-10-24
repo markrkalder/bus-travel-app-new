@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.sql.Timestamp;
-import java.util.Date;
-
 @Entity
 @Data
 public class ScheduleItem {
@@ -14,6 +11,7 @@ public class ScheduleItem {
     @Id
     private String id;
     private float price;
+    @Embedded
     @JsonProperty("start")
     @AttributeOverrides({
             @AttributeOverride(name = "date", column = @Column(name = "start_date")),
@@ -21,6 +19,7 @@ public class ScheduleItem {
             @AttributeOverride(name = "timezone", column = @Column(name = "start_timezone"))
     })
     private DateInfo start;
+    @Embedded
     @JsonProperty("end")
     @AttributeOverrides({
             @AttributeOverride(name = "date", column = @Column(name = "end_date")),

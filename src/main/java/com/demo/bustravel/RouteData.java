@@ -28,9 +28,11 @@ public class RouteData {
 
     public void fetchData(){
         String url = "https://assignments.novater.com/v1/bus/schedule";
-        String username = "Mark Robin";
-        String password = "d76db71f30700b757e421d6440c43c19";
+        String username = "";
+        String password = "";
 
+        System.out.println(username);
+        System.out.println(password);
         HttpHeaders httpHeaders = new HttpHeaders();
         String auth = username + ":" + password;
         byte[] encodedAuth = Base64.getEncoder().encode(auth.getBytes(StandardCharsets.UTF_8));
@@ -48,7 +50,6 @@ public class RouteData {
         );
 
         if (response.getStatusCode().is2xxSuccessful()) {
-            System.out.println(response.getBody());
             RouteDataResponse responseBody = response.getBody();
             if (responseBody != null && responseBody.getRoutes() != null){
                 for (Route route : responseBody.getRoutes()) {
